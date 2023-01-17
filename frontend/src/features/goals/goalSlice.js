@@ -15,7 +15,7 @@ export const createGoal = createAsyncThunk('goals/create', async (goalData, thun
         const token = thunkAPI.getState().authR.user.token //thunk api has a method to access STATE 🥳 
         return await goalService.createGoal(goalData, token)
     } catch (error) {
-        const message = (error.res && error.res.data && error.res.data.messsage) || error.message || error.toString()
+        const message = (error.res && error.res.data && error.res.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
     }
 })
@@ -26,7 +26,7 @@ export const getGoals = createAsyncThunk('goals/getAll', async (_, thunkAPI) => 
         const token = thunkAPI.getState().authR.user.token //thunk api has a method to access STATE 🥳 
         return await goalService.getGoals(token)
     } catch (error) {
-        const message = (error.res && error.res.data && error.res.data.messsage) || error.message || error.toString()
+        const message = (error.res && error.res.data && error.res.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
     }
 })
@@ -37,7 +37,7 @@ export const deleteGoal = createAsyncThunk('goals/delete', async (id, thunkAPI) 
         const token = thunkAPI.getState().authR.user.token //thunk api has a method to access STATE 🥳 
         return await goalService.deleteGoal(id, token)
     } catch (error) {
-        const message = (error.res && error.res.data && error.res.data.messsage) || error.message || error.toString()
+        const message = (error.res && error.res.data && error.res.data.message) || error.message || error.toString()
         return thunkAPI.rejectWithValue(message)
     }
 })
